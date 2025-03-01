@@ -41,6 +41,33 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto relative">
+        {/* Skills Section */}
+        <div>
+          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+            Technical Skills
+          </h2>
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6">
+            {technologies.map((tech, index) => (
+              <motion.div
+                key={tech.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="flex flex-col items-center gap-2"
+              >
+                <div className="w-12 h-12 rounded-lg bg-zinc-900/50 p-2 backdrop-blur-sm border border-zinc-800 hover:border-emerald-500/50 transition-colors">
+                  <img src={tech.icon || "/placeholder.svg"} alt={tech.name} className="w-full h-full object-contain" />
+                </div>
+                <span className="text-xs text-slate-400">{tech.name}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         {/* Contact Information */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div>
@@ -105,29 +132,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Skills Section */}
-        <div>
-          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
-            Technical Skills
-          </h2>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6">
-            {technologies.map((tech, index) => (
-              <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="flex flex-col items-center gap-2"
-              >
-                <div className="w-12 h-12 rounded-lg bg-zinc-900/50 p-2 backdrop-blur-sm border border-zinc-800 hover:border-emerald-500/50 transition-colors">
-                  <img src={tech.icon || "/placeholder.svg"} alt={tech.name} className="w-full h-full object-contain" />
-                </div>
-                <span className="text-xs text-slate-400">{tech.name}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+        
 
         {/* Copyright */}
         <div className="mt-16 pt-8 border-t border-zinc-800 text-center text-sm text-slate-400">
